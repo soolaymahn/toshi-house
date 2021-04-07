@@ -67,7 +67,6 @@ export const sendAudio = async (transport: Transport) => {
       track: track,
       appData: { mediaTag: "cam-audio" },
     });
-    console.log("jkfjsdl", producer);
     track.enabled = true;
     return { producer, micStream, track };
   }
