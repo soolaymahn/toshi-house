@@ -34,7 +34,6 @@ export const useInitConnections = () => {
           mediaActions.handleRecvTracksDone(data);
         },
       });
-      socketActions.join();
     }
   }, [mediaState.device])
 

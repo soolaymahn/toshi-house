@@ -7,7 +7,7 @@ USERS = {}
 
 credentials = pika.PlainCredentials('', '')
 connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host='gull.rmq.cloudamqp.com', virtual_host='pgbavth', credentials=credentials))
+    pika.ConnectionParameters(host='gull.rmq.cloudamqp.com', virtual_host='', credentials=credentials))
 channel = connection.channel()
 channel.queue_declare(queue='sfu_queue', durable=True)
 

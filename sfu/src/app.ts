@@ -133,9 +133,8 @@ async function main() {
         );
         send({
           platform: "sfu",
-          uid: theirPeerId,
+          peerId: theirPeerId,
           op: "new-peer-speaker",
-          peer: myPeerId,
           d: { ...d },
         });
       }
