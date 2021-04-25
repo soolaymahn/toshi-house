@@ -10,7 +10,7 @@ const out_queue = "api_queue";
 const in_queue = "sfu_queue";
 
 export const createRabbit = async () => {
-  const conn = await amqp.connect("");
+  const conn = await amqp.connect(process.env.AMQP_URL ?? '');
   const channel = await conn.createChannel();
 
   await Promise.all([

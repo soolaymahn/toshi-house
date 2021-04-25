@@ -2,8 +2,12 @@ import asyncio
 import websockets
 import pika
 import nest_asyncio
+import os
 
 nest_asyncio.apply()
+
+host = os.environ['AMQP_HOST']
+key = os.environ['AMQP_KEY']
 
 
 async def hello():
@@ -13,7 +17,7 @@ async def hello():
             print(" [x] Received %r" % body)
             asyncio.run(websocket.send(body.decode('utf-8')))
 
-        credentials = pika.PlainCredentials('', '')
+        credentials = pika.PlainCredentials(host, key)
         connection = pika.BlockingConnection(
             pika.ConnectionParameters(host='gull.rmq.cloudamqp.com', virtual_host='pgbavvth', credentials=credentials))
         channel = connection.channel()
